@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>comple pre process</title>
+</head>
+<body>
+    <p>null value: {{df_null}} </p> 
+    <p>normalize: {{x}} </p> 
+    <div class="col-md-6">
+        <h2>Details of Dataset</h2>
+        <p>next we update</p>
+        <P>Predict data model name is <span style="font-size: 30px; font-weight: bold; color: red;">{{check}}</span> </P>
+        <button onclick="displayDataset()" class="btn btn-primary">View Dataset</button>
+        <br/>
+        <br/>
+        <div id="myDIV">
+        {{df_table.to_html(classes="table table_striped table_hover", na_rep="-") | safe }}
+
+        </div>
+    </div>
+    
+</body>
+</html>

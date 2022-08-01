@@ -1,0 +1,83 @@
+{% extends "base.html" %} 
+{% block content %}
+
+    <div class="jumbotron">
+        <div class="container">
+        <h1 class="display-3">Simplified MLApp</h1>
+        <p>Simplify your Machine Learning and Data Exploration</p>
+        <p><a href="{{url_for('index')}}" type="button" class="btn btn-primary">Refresh</a></p>
+      </div>
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5" style="background-color: #3f76ef;">
+            <h2>Detailes of Dataset</h2>
+            <div class="alert alert-info" role="alert">
+                <p><span style="color:red">Filename</span>
+                {{filename}}</p>
+            </div>
+
+            <h2> Exploratory Data Analysis</h2>
+
+            <div class="alert alert-info" role="alert">
+                <p><span style="color:red">Data Size</span>
+                {{df_size}}</p>
+            </div>
+            <div class="alert alert-info" role="alert">
+                <p><span style="color:red">Data Shape</span>
+                {{df_shape}}</p>
+            </div>
+            <div class="alert alert-info" role="alert">
+                <table><span style="color:red">Data null</span>
+                    {{df_info}}
+                    </table>
+            </div>
+            <div class="alert alert-info" role="alert">
+                <p><span style="color:red">Data column</span>
+                {{df_column}}</p>
+            </div>
+            <div class="alert alert-info" role="alert">
+                <p><span style="color:red">x column</span>
+                {{x_column}}</p>
+            </div>
+            <div class="alert alert-info" role="alert">
+                <p><span style="color:red">y column</span>
+                {{y_column}}</p>
+            </div>
+            <div class="alert alert-info" role="alert">
+                <p><span style="color:red">train data shape</span>
+                {{x_train,y_train}}</p>
+            </div>
+            <div class="alert alert-info" role="alert">
+                <p><span style="color:red"> model</span>
+                {{check}}</p>
+            </div>
+            <h2>model Score</h2>
+            {% for names in name %}
+            <div class="list-group">
+                <a href="#" class="list-group-item"><span style="color: red;">{{names}}</span>
+                </a>
+                {% endfor %}
+            {% for mlaccuracy in model_results %}
+                <a href="#" class="list-group-item">
+                    {{mlaccuracy}}
+                </a>
+                </div>
+                {% endfor %}
+         </div>
+
+    <div class="col-md-6">
+        <h2>Details of Dataset</h2>
+        <p>next we update</p>
+        <button onclick="displayDataset()" class="btn btn-primary">View Dataset</button>
+        <p  {{model_results.sort()}} >Accuracy highest:{{model_results[-1]}}</p>
+        <br/>
+        <br/>
+        <div id="myDIV">
+            {{df_head.to_html(classes="table table_striped table_hover", na_rep="-") | safe }}
+            <!-- {{df_table.to_html(classes="table table_striped table_hover", na_rep="-") | safe }} -->
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}

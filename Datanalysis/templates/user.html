@@ -1,0 +1,109 @@
+{% extends "base.html" %} 
+{% block content %}
+
+    <div class="jumbotron" style="height: 200px;">
+        <div class="container" style="float: left;margin-left: 115px; font-weight: bold;">
+        <h2 class="display-3" style="color: rgb(23, 0, 59);">Company Data Analysis</h2>
+        <p style="color: rgb(75, 0, 0);">Simplify your Machine Learning and Data Exploration</p>
+        <p><a href="{{url_for('index')}}" type="button" class="btn btn-primary" style="font-weight:bold; font-size:medium;">Refresh</a></p>
+      </div>
+      <!-- <div style="float: right;width: 400px;background-color: azure;color: black; font-weight: bold;font-size: medium; font-style: italic; margin-right: 70px;">
+        <form class="form-select" aria-label="Default select example" action="#" method="post">
+            <label for="cars">Choose a Brand Name:</label>
+            
+            <select name="Brand" id="brand">
+                <option selected>Over All</option>
+                {% for user in user_list %}
+                <option value="{{user}}" style="width: 400px;background-color:rgb(245, 235, 235); color: black;font-weight: bold; text-align: center;" >{{user}}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <input type="submit" value="Submit" style="width: 300px;background-color:black; color: white;font-weight: bold; text-align: center; font-size: large;">
+          </form>
+    </div> -->
+    </div>
+<div class="container">
+    <div class="container" style="float: left;width:45%; height:800px;">
+        <div class="row">
+            <div  style="background-color: #3f76ef; font-weight: bold;font-size: medium;">
+                <h2 style="margin-top: 10px;">Detailes of Dataset</h2>
+                <div class="alert alert-info" role="alert">
+                    <p><span style="color:red">Brand Name</span>
+                    {{user}}</p>
+                    </p>
+                </div>
+
+                <h2> Exploratory Data Analysis</h2>
+
+                <div class="alert alert-info" role="alert">
+                    <p><span style="color:red">Data Size</span>
+                    {{df_size}}</p>
+                </div>
+                <div class="alert alert-info" role="alert">
+                    <p><span style="color:red">Data Shape</span>
+                    {{df_shape}}</p>
+                </div>
+                <div class="alert alert-info" role="alert">
+                    <table><span style="color:red">Data null</span>
+                        {{df_info}}
+                        </table>
+                </div>
+                <div class="alert alert-info" role="alert">
+                    <p><span style="color:red">Data column</span>
+                    {{df_column}}</p>
+                </div>
+                <!-- <div class="alert alert-info" role="alert">
+                    <p><span style="color:red">X column</span>
+                    {{x_column}}</p>
+                </div>
+                <div class="alert alert-info" role="alert">
+                    <p><span style="color:red">Y column</span>
+                    {{y_column}}</p>
+                </div> -->
+                <!-- <div class="alert alert-info" role="alert">
+                    <p><span style="color:red">Train data shape</span>
+                    {{x_train,y_train}}</p>
+                </div> -->
+                <div class="alert alert-info" role="alert">
+                    <p><span style="color:red"> Per Day Prediction</span>
+                    {{prediction}}</p>
+                </div>
+                <!-- <h2>Model Score</h2>
+                {% for names in name %}
+                <div class="list-group">
+                    <a href="#" class="list-group-item"><span style="color: red;">{{names}}</span>
+                    </a>
+                    {% endfor %}
+                {% for mlaccuracy in model_results %}
+                    <a href="#" class="list-group-item">
+                        {{mlaccuracy}}
+                    </a>
+                    </div>
+                    {% endfor %} -->
+            </div>
+
+   
+        </div>
+    </div>
+    <div class="container" style="float: right;width:50%; height:400px;">
+        <div class="row">
+            <div class="col-md-5" style="background-color: black;color: white;font-weight: bold;">
+                <h2>Dataset</h2>
+            </div>
+            <div id="myDIV">
+                {{df_table.to_html(classes="table table_striped table_hover", na_rep="-") | safe }}
+        
+            </div>
+
+        </div> 
+
+
+        <img src="{{ url_for('visualize3') }}" alt="Chart">   
+
+        <img src="{{ url_for('visualize4') }}" alt="Chart">  
+        <img src="{{ url_for('visualize5') }}" alt="Chart"> 
+    </div>
+
+
+</div>
+{% endblock %}

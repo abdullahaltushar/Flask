@@ -1,0 +1,80 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<div class="container">
+  <div class="jumbotron" style="float: left;margin-left: 15px; font-weight: bold;">
+    <h1 class="display-3" style="color: rgb(23, 0, 59);">Simplified MLApp</h1>
+    <p>Grow you business with machine learning support</p>
+    <p><a href="{{url_for('index')}}" type="button" class="btn btn-primary">Refresh</a></p>
+  </div>
+  <div class="container">
+    <form method="POST" class="form-group" action="{{url_for('datauploads')}}" enctype="multipart/form-data">
+      <div style="height: 50px; clear:both">
+        <input type="file" name="csv_data">      
+      </div>
+      
+      <!-- <p>Label column <input type = "text" name = "label" /></p>
+      <p>Train and test size <input type = "number" name = "input"/></p> -->
+      <!-- <p>
+        <select name="method" style="width: 200px; text-align: center; color: black;">
+          <option value="Regression">Regression</option>
+          <option value="Classification">Classification</option>
+      
+      </select>
+      </p> -->
+      <!-- <P style="width: 200px; font-size: 25px; color: rgba(0, 17, 255, 0.94); font-weight: bold;"> Model Selection </P>
+      <p style="width: 200px; font-size: 30px; color: red; font-weight: bold;  text-align: center;">Regression</p>
+      <p>RandomForestRegression <input type="checkbox" value="Rfr" name="checked" ></p>
+      <p>DecisionTreeRegression <input type="checkbox" value="Dtr" name="checked" ></p>
+      <p>KNeighborsRegression <input type="checkbox" value="Knr" name="checked" ></p>
+      <p>LinearDiscriminantAnalysis <input type="checkbox" value="Lda" name="checked" ></p>
+      <p>GaussianNB <input type="checkbox" value="Gnb" name="checked" ></p>
+      <p>SupportVactorRegression  <input type="checkbox" value="Svr" name="checked" ></p>
+
+      <p style="width: 200px; font-size: 30px; color: green; font-weight: bold; text-align: center; ">Classification </p>
+      <p>DecisionTreeClassifier <input type="checkbox" value="Dtc" name="checked" ></p>
+      <p>RandomForestClassifier <input type="checkbox" value="Rfc" name="checked" ></p>
+      <p>SupportVactorClassification <input type="checkbox" value="Svc" name="checked" ></p>
+      <p>KNeighborsClassifier <input type="checkbox" value="Knc" name="checked" ></p> -->
+      <div class="button" style="height: 50px; clear:both">
+        <input type="submit" class="btn btn-primary mb-2">
+        <input type="reset" value="Reset" class="btn btn-danger mb-2">
+
+      </div>
+    </form>
+  </div>
+<!-- <div class="container">
+  <a href="{{url_for('preprocess')}}" class="link-success" type="button">PreProcess</a>
+</div> -->
+</div>
+<!-- 
+<div class="main">
+Title Row with Image and App Name
+  <div class="title"> -->
+    <!-- <img src="{{url_for('static', filename='melon_head.jpeg')}}" align="middle" class="melonHead"/>
+    <h3 class="titleText">The Needle Bot</h3>
+  </div> --> 
+<!-- -------- -->
+<!-- File Upload Input Box -->
+  <!-- <div class="panel">
+    <input id="file-upload" class="hidden" type="file" accept="audio/*" name="audio_file"/>
+    <label for="file-upload" id="file-drag" class="upload-box">
+      <div id="upload-caption">Drop your song here or click to select (.wav)</div>
+      <p id="image-preview" class="hidden" />
+    </label>
+  </div> -->
+<!-- -------- -->
+<!-- Submit & Clear Buttons -->
+  <!-- <div style="margin-bottom: 2rem;">
+    <input type="button" value="Submit" class="button" onclick="submitImage();" />
+    <input type="button" value="Clear" class="button" onclick="clearImage();" />
+  </div> -->
+<!-- -------- -->
+<!-- Instructions and Loading Icon -->
+  
+<!-- -------- -->
+<!-- Model Results (Hidden at first) -->
+<!-- -------- -->
+<!-- </div> -->
+
+{% endblock %}
